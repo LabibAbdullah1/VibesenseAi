@@ -2,11 +2,15 @@
 
 namespace App\Models;
 
+<<<<<<< HEAD
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+=======
+>>>>>>> 681b617 (create schema database)
 use Illuminate\Database\Eloquent\Model;
 
 class AiRespons extends Model
 {
+<<<<<<< HEAD
     use HasFactory;
 
     protected $table = 'AiRespons';
@@ -29,4 +33,7 @@ class AiRespons extends Model
     {
         return $this->belongsTo(Mood::class);
     }
+=======
+    //
+>>>>>>> 681b617 (create schema database)
 }
