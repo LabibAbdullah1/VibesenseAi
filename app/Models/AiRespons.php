@@ -22,8 +22,12 @@ class AiRespons extends Model
 =======
     use HasFactory;
 
+<<<<<<< HEAD
     protected $table = 'ai_respons';
 >>>>>>> 7139098 (Add models and migrations for AiRespons, LogActivity, Mood, UserPreference; remove Tells and update moods structure)
+=======
+    protected $table = 'AiRespons';
+>>>>>>> ad56d14 (fix AiRespons)
 
     protected $fillable = [
         'user_id',
