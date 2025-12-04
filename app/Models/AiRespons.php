@@ -3,17 +3,27 @@
 namespace App\Models;
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 =======
 >>>>>>> 681b617 (create schema database)
+=======
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+>>>>>>> 7139098 (Add models and migrations for AiRespons, LogActivity, Mood, UserPreference; remove Tells and update moods structure)
 use Illuminate\Database\Eloquent\Model;
 
 class AiRespons extends Model
 {
 <<<<<<< HEAD
+<<<<<<< HEAD
     use HasFactory;
 
     protected $table = 'AiRespons';
+=======
+    use HasFactory;
+
+    protected $table = 'ai_respons';
+>>>>>>> 7139098 (Add models and migrations for AiRespons, LogActivity, Mood, UserPreference; remove Tells and update moods structure)
 
     protected $fillable = [
         'user_id',
@@ -33,7 +43,10 @@ class AiRespons extends Model
     {
         return $this->belongsTo(Mood::class);
     }
+<<<<<<< HEAD
 =======
     //
 >>>>>>> 681b617 (create schema database)
+=======
+>>>>>>> 7139098 (Add models and migrations for AiRespons, LogActivity, Mood, UserPreference; remove Tells and update moods structure)
 }
