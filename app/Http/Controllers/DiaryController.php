@@ -25,9 +25,6 @@ class DiaryController extends Controller
 
         AnalyzeDiaryMoodJob::dispatch($diary->id);
 
-        return response()->json([
-            'message' => 'Diary berhasil disimpan. Analisis suasana hati sedang diproses di latar belakang.',
-            'diary_id' => $diary->id,
-        ], 201);
+        return redirect()->route('dashboard')->with('success', 'Diary Anda sedang dianalisis.');
     }
 }
