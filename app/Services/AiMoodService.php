@@ -14,7 +14,7 @@ class AiMoodService
         Berikan JSON dengan format:
         {\"mood\":string, \"score\":float, \"desc\":string, \"motivation\":string}";
 
-        $response = Http::withToken(env('AI_API_KEY'))
+        $response = Http::withToken(env('API_KEY_KOLOSAL'))
             ->post('https://api.kolosal.ai/v1/chat/completions', [
                 "model" => "Claude Sonnet 4.5",
                 "messages" => [
