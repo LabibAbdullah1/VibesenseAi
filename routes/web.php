@@ -26,5 +26,5 @@ use App\Http\Controllers\DiaryController;
 Route::middleware('auth')->group(function () {
     // URL yang lebih 'web-friendly'
     Route::post('/diaries/submit', [DiaryController::class, 'store'])->name('diaries.store');
-
+});
 require __DIR__.'/auth.php';
