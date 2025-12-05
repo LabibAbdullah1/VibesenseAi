@@ -23,7 +23,7 @@
 
                 <div class="flex flex-col sm:flex-row gap-3 sm:gap-4">
                     @auth
-                        <a href="{{ route('dashboard') }}"
+                        <a href="{{ route('user.dashboard') }}"
                             class="bg-gradient-to-r from-purple-600 to-pink-600 text-white px-6 sm:px-8 py-3 sm:py-4 rounded-full font-semibold text-base sm:text-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-200 text-center">
                             Buka Dashboard
                         </a>

@@ -14,6 +14,8 @@ class DiaryController extends Controller
     /**
      * 1. INDEX: Menampilkan daftar diary milik user.
      */
+
+
     public function index()
     {
         // Mengambil diary milik user yang login, diurutkan dari terbaru.
@@ -23,7 +25,7 @@ class DiaryController extends Controller
             ->latest()
             ->paginate(10); // Menampilkan 10 per halaman
 
-        return view('diaries.index', compact('diaries'));
+        return view('user.diary.index', compact('diaries'));
     }
 
     /**
@@ -31,7 +33,7 @@ class DiaryController extends Controller
      */
     public function create()
     {
-        return view('diaries.create');
+        return view('user.diary.create');
     }
 
     /**
@@ -56,7 +58,7 @@ class DiaryController extends Controller
         // Memanggil fungsi privat yang menjalankan 3 analisis sekaligus
         $this->processAnalysis($diary);
 
-        return redirect()->route('diaries.show', $diary->id)
+        return redirect()->route('user.diary.show', $diary->id)
             ->with('success', 'Diary berhasil disimpan! Analisis Mood, Refleksi, dan Habit telah siap.');
     }
 
@@ -70,7 +72,7 @@ class DiaryController extends Controller
             ->where('user_id', Auth::id())
             ->findOrFail($id);
 
-        return view('diaries.show', compact('diary'));
+        return view('user.diary.show', compact('diary'));
     }
 
     /**
@@ -79,7 +81,7 @@ class DiaryController extends Controller
     public function edit($id)
     {
         $diary = Diary::where('user_id', Auth::id())->findOrFail($id);
-        return view('diaries.edit', compact('diary'));
+        return view('user.diary.edit', compact('diary'));
     }
 
     /**
@@ -119,7 +121,7 @@ class DiaryController extends Controller
             $message = 'Status privasi diary berhasil diperbarui.';
         }
 
-        return redirect()->route('diaries.show', $diary->id)->with('success', $message);
+        return redirect()->route('user.diary.show', $diary->id)->with('success', $message);
     }
 
     /**
@@ -135,7 +137,7 @@ class DiaryController extends Controller
 
         $diary->delete();
 
-        return redirect()->route('diaries.index')->with('success', 'Diary berhasil dihapus.');
+        return redirect()->route('user.diary.index')->with('success', 'Diary berhasil dihapus.');
     }
 
     // =========================================================================

@@ -24,7 +24,7 @@
             <!-- CTA Buttons -->
             <div class="flex items-center space-x-2 sm:space-x-4">
                 @auth
-                    <a href="{{ route('dashboard') }}"
+                    <a href="{{ route('user.dashboard') }}"
                         class="hidden sm:inline-block text-purple-600 hover:text-purple-700 font-semibold transition-colors text-sm lg:text-base">
                         Dashboard
                     </a>
