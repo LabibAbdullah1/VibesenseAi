@@ -11,11 +11,6 @@ use Illuminate\Support\Facades\Log;
 
 class DiaryController extends Controller
 {
-    /**
-     * 1. INDEX: Menampilkan daftar diary milik user.
-     */
-
-
     public function index()
     {
         $diaries = Diary::with('analysis')
@@ -25,7 +20,6 @@ class DiaryController extends Controller
 
         return view('user.diary.index', compact('diaries'));
     }
-
 
     public function create()
     {
@@ -62,7 +56,6 @@ class DiaryController extends Controller
                 ->route('user.diary.index')
                 ->with('warning', 'Diary berhasil disimpan, namun analisis AI sedang tidak tersedia saat ini.');
         }
-
     }
 
     public function show($id)
