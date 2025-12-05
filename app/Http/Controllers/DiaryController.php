@@ -11,6 +11,10 @@ use Illuminate\Support\Facades\Log;
 
 class DiaryController extends Controller
 {
+    /**
+     * 1. INDEX: Menampilkan daftar diary milik user.
+     */
+
 
     public function index()
     {
@@ -19,13 +23,13 @@ class DiaryController extends Controller
             ->latest()
             ->paginate(10);
 
-        return view('diaries.index', compact('diaries'));
+        return view('user.diary.index', compact('diaries'));
     }
 
 
     public function create()
     {
-        return view('diaries.create');
+        return view('user.diary.create');
     }
 
     public function store(Request $request)
@@ -46,18 +50,18 @@ class DiaryController extends Controller
         // 3. Proses KA (Dengan Error Handling Halus)
         try {
             $this->processAnalysis($diary);
-            $message = 'Diary berhasil disimpan dan Analisis KA selesai!';
-            $status = 'success';
+
+            return redirect()
+                ->route('user.diary.show', $diary->id)
+                ->with('success', 'Diary berhasil disimpan dan analisis AI selesai!');
         } catch (\Exception $e) {
+
             Log::error("KA Error pada Diary ID {$diary->id}: " . $e->getMessage());
 
-            $message = 'Diary berhasil disimpan, namun Analisis KA sedang tidak tersedia saat ini.';
-            $status = 'warning';
+            return redirect()
+                ->route('user.diary.show', $diary->id)
+                ->with('warning', 'Diary berhasil disimpan, namun analisis AI sedang tidak tersedia saat ini.');
         }
-
-        // 4. Redirect ke halaman detail atau index
-        return redirect()->route('diaries.index')
-            ->with($status, $message);
     }
 
     public function show($id)
@@ -66,13 +70,13 @@ class DiaryController extends Controller
             ->where('user_id', Auth::id())
             ->findOrFail($id);
 
-        return view('diaries.show', compact('diary'));
+        return view('user.diary.show', compact('diary'));
     }
 
     public function edit($id)
     {
         $diary = Diary::where('user_id', Auth::id())->findOrFail($id);
-        return view('diaries.edit', compact('diary'));
+        return view('user.diary.edit', compact('diary'));
     }
 
     public function update(Request $request, $id)
@@ -106,7 +110,7 @@ class DiaryController extends Controller
             }
         }
 
-        return redirect()->route('diaries.index')->with('success', $message);
+        return redirect()->route('user.diary.show', $diary->id)->with('success', $message);
     }
 
     /**
@@ -116,7 +120,8 @@ class DiaryController extends Controller
     {
         $diary = Diary::where('user_id', Auth::id())->findOrFail($id);
         $diary->delete();
-        return redirect()->route('diaries.index')->with('success', 'Diary berhasil dihapus.');
+
+        return redirect()->route('user.diary.index')->with('success', 'Diary berhasil dihapus.');
     }
 
     private function processAnalysis(Diary $diary)
@@ -157,16 +162,16 @@ class DiaryController extends Controller
             'Content-Type'  => 'application/json',
             'Accept'        => 'application/json',
         ])
-        ->timeout(45)
-        ->post($baseUrl, [
-            'model' => $model,
-            'messages' => [
-                ['role' => 'system', 'content' => "Output JSON valid: " . json_encode($jsonSchema)],
-                ['role' => 'user', 'content' => $content]
-            ],
-            'temperature' => 0.5,
-            'response_format' => ['type' => 'json_object'],
-        ]);
+            ->timeout(45)
+            ->post($baseUrl, [
+                'model' => $model,
+                'messages' => [
+                    ['role' => 'system', 'content' => "Output JSON valid: " . json_encode($jsonSchema)],
+                    ['role' => 'user', 'content' => $content]
+                ],
+                'temperature' => 0.5,
+                'response_format' => ['type' => 'json_object'],
+            ]);
 
         if ($response->failed()) {
             throw new \Exception("Gagal KA: " . $response->status() . " " . $response->body());

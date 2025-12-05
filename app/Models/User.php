@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Symfony\Component\Mime\Message;
+use App\Models\Diary;   
 
 class User extends Authenticatable
 {
@@ -33,12 +34,15 @@ class User extends Authenticatable
         ];
     }
 
-    public function messages(){
+    public function messages()
+    {
         return $this->hasMany(Message::class);
     }
 
-    public function testimony(){
+    public function testimony()
+    {
         return $this->hasMany(testimony::class);
     }
+
 
 }
