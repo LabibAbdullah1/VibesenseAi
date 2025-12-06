@@ -50,7 +50,7 @@ Jangan lewatkan kesempatan untuk melihat VibeSenseAi beraksi. Klik tautan di baw
 <br>
 
 ![Tampilan Utama Aplikasi](public/img/vibesenseai.png)
-> *Tampilan Halaman utama dari aplikasi vibesenseAi*
+> *Tampilan Halaman utama dari aplikasi VibeSenseAi*
 
 ---
 
@@ -66,7 +66,7 @@ Mengikuti format analisis bisnis untuk memahami urgensi proyek ini:
 
 ## 💡 Idea / Solution <a name = "idea"></a>
 
-**VibeSenseAi** hadir sebagai solusi yang menjembatani *journaling* tradisional dengan teknologi **Kecerdasan Artificial (KA)**.
+**VibeSenseAi** hadir sebagai solusi yang menjembatani *journaling* tradisional dengan teknologi **Kecerdasan Artificial**.
 
 Solusi kami sederhana namun berdampak:
 1.  Pengguna menulis catatan harian seperti biasa.
@@ -77,8 +77,8 @@ Solusi kami sederhana namun berdampak:
 ## ⛓️ Dependencies / Limitations <a name = "limitations"></a>
 
 - **Koneksi Internet:** Karena aplikasi membutuhkan akses ke API eksternal (Kolosal.ai) untuk memproses teks, aplikasi ini tidak dapat berfungsi penuh secara offline.
-- **Limitasi API:** Ketergantungan pada *Rate Limit* dan kuota dari penyedia layanan KA (Kolosal).
-- **Nuansa Bahasa (Slang):** Meskipun model KA sudah canggih, penggunaan bahasa daerah yang sangat spesifik atau *slang* baru mungkin mengurangi akurasi deteksi mood.
+- **Limitasi API:** Ketergantungan pada *Rate Limit* dan kuota dari penyedia layanan AI (Kolosal).
+- **Nuansa Bahasa (Slang):** Meskipun model AI sudah canggih, penggunaan bahasa daerah yang sangat spesifik atau *slang* baru mungkin mengurangi akurasi deteksi mood.
 - **Privasi API:** Data teks dikirim ke pihak ketiga (Kolosal) untuk diproses, meskipun kami memastikan transmisi aman, ini adalah pertimbangan arsitektur yang perlu diketahui.
 
 ## 🚀 Future Scope <a name = "future_scope"></a>
