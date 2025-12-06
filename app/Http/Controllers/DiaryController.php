@@ -11,11 +11,6 @@ use Illuminate\Support\Facades\Log;
 
 class DiaryController extends Controller
 {
-    /**
-     * 1. INDEX: Menampilkan daftar diary milik user.
-     */
-
-
     public function index()
     {
         $diaries = Diary::with('analysis')
@@ -25,7 +20,6 @@ class DiaryController extends Controller
 
         return view('user.diary.index', compact('diaries'));
     }
-
 
     public function create()
     {
@@ -52,14 +46,14 @@ class DiaryController extends Controller
             $this->processAnalysis($diary);
 
             return redirect()
-                ->route('user.diary.show', $diary->id)
+                ->route('user.diary.index')
                 ->with('success', 'Diary berhasil disimpan dan analisis AI selesai!');
         } catch (\Exception $e) {
 
             Log::error("KA Error pada Diary ID {$diary->id}: " . $e->getMessage());
 
             return redirect()
-                ->route('user.diary.show', $diary->id)
+                ->route('user.diary.index')
                 ->with('warning', 'Diary berhasil disimpan, namun analisis AI sedang tidak tersedia saat ini.');
         }
     }
@@ -150,7 +144,7 @@ class DiaryController extends Controller
         }
 
         $jsonSchema = [
-            'mood' => 'string (Singkat: Bahagia/Sedih/Cemas)',
+            'mood' => 'string (Singkat: Senang/Sedih/Cemas/Lelah/Marah/Tenang/Stres)',
             'mood_score' => 'integer (0-100)',
             'reflection' => 'string (Refleksi hangat maks 2 kalimat)',
             'habit_insight' => 'string (Saran aksi maks 2 kalimat)',
