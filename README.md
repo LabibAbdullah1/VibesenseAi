@@ -110,7 +110,6 @@ Ikuti langkah-langkah berikut untuk menyiapkan lingkungan pengembangan (Developm
 1. **Clone Repositori**
 ```
 git clone https://github.com/LabibAbdullah1/VibesenseAi.git
-
 cd VibesenseAi
 ```
 
@@ -152,6 +151,7 @@ php artisan migrate
 ```
 php artisan serve
 ```
+>Masuk ke aplikasi dengan localhost kalian:  http://localhost:8000
 ## 🎈 Usage <a name="usage"></a>
  1. Register/Login: Buat akun baru atau masuk menggunakan kredensial yang ada.
 
