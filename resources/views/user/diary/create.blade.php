@@ -129,8 +129,7 @@
                         </div>
                     </div>
                     <div class="bg-gray-50 rounded-lg sm:rounded-xl p-4 sm:p-5 border border-gray-200">
-                        <p class="text-gray-700 leading-relaxed whitespace-pre-wrap text-sm sm:text-base">
-                            {{ $diary->content }}</p>
+                        <p class="text-gray-700 leading-relaxed whitespace-pre-wrap text-sm sm:text-base">{{ $diary->content }}</p>
                     </div>
                 </div>
 
