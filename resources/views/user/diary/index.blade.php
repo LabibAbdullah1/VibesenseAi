@@ -57,7 +57,7 @@
 
                 <!-- Mood Filter -->
                 <select name="mood"
-                    class="px-4 py-3 text-sm rounded-xl border border-gray-300 focus:ring-2 focus:ring-purple-300 focus:border-purple-400 transition-all bg-white">
+                    class="pl-4 pr-8 py-3 text-sm rounded-xl border border-gray-300 focus:ring-2 focus:ring-purple-300 focus:border-purple-400 transition-all bg-white">
                     <option value="">🎭 Semua Mood</option>
                     <option value="senang" {{ request('mood') == 'senang' ? 'selected' : '' }}>😊 Senang</option>
                     <option value="sedih" {{ request('mood') == 'sedih' ? 'selected' : '' }}>😢 Sedih</option>
@@ -70,7 +70,7 @@
 
                 <!-- Sort Filter -->
                 <select name="sort"
-                    class="px-4 py-3 text-sm rounded-xl border border-gray-300 focus:ring-2 focus:ring-purple-300 focus:border-purple-400 transition-all bg-white">
+                    class="pl-4 pr-8 py-3 text-sm rounded-xl border border-gray-300 focus:ring-2 focus:ring-purple-300 focus:border-purple-400 transition-all bg-white">
                     <option value="latest">📅 Terbaru</option>
                     <option value="oldest" {{ request('sort') == 'oldest' ? 'selected' : '' }}>📆 Terlama</option>
                 </select>
