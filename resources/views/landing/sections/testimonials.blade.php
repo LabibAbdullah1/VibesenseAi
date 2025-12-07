@@ -20,31 +20,11 @@
             <div
                 class="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition duration-300 transform hover:-translate-y-2">
 
-                <!-- Rating -->
-                <div class="flex mb-6 text-yellow-400">
-                    <!-- 5 stars -->
-                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
-                        <path d="M9.049 2.927c..." />
-                    </svg>
-                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
-                        <path d="M9.049 2.927c..." />
-                    </svg>
-                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
-                        <path d="M9.049 2.927c..." />
-                    </svg>
-                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
-                        <path d="M9.049 2.927c..." />
-                    </svg>
-                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
-                        <path d="M9.049 2.927c..." />
-                    </svg>
-                </div>
-
                 <!-- Message -->
                 <p class="text-gray-600 leading-relaxed mb-6">
-                    “Setiap kali aku curhat, VibeSense AI selalu memberikan respons yang menenangkan.
+                    "Setiap kali aku curhat, VibeSense AI selalu memberikan respons yang menenangkan.
                     Analisis emosinya benar-benar membantu aku memahami perasaan sendiri.
-                    Rasanya seperti punya teman yang selalu ada tapi tetap objektif.”
+                    Rasanya seperti punya teman yang selalu ada tapi tetap objektif."
                 </p>
 
                 <!-- User Info -->
@@ -65,28 +45,9 @@
             <div
                 class="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition duration-300 transform hover:-translate-y-2">
 
-                <div class="flex mb-6 text-yellow-400">
-                    <!-- 5 stars -->
-                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
-                        <path d="M9.049 2.927c..." />
-                    </svg>
-                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
-                        <path d="M9.049 2.927c..." />
-                    </svg>
-                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
-                        <path d="M9.049 2.927c..." />
-                    </svg>
-                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
-                        <path d="M9.049 2.927c..." />
-                    </svg>
-                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
-                        <path d="M9.049 2.927c..." />
-                    </svg>
-                </div>
-
                 <p class="text-gray-600 leading-relaxed mb-6">
-                    “Feature analisis emosinya gokil sih. Dari tulisan singkat, AI bisa tahu suasana hati.
-                    Bahkan kasih saran cara mengelola stress. Ngebantu banget buat self-healing.”
+                    "Feature analisis emosinya gokil sih. Dari tulisan singkat, AI bisa tahu suasana hati.
+                    Bahkan kasih saran cara mengelola stress. Ngebantu banget buat self-healing."
                 </p>
 
                 <div class="flex items-center">
@@ -106,29 +67,10 @@
             <div
                 class="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition duration-300 transform hover:-translate-y-2">
 
-                <div class="flex mb-6 text-yellow-400">
-                    <!-- 5 stars -->
-                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
-                        <path d="M9.049 2.927c..." />
-                    </svg>
-                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
-                        <path d="M9.049 2.927c..." />
-                    </svg>
-                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
-                        <path d="M9.049 2.927c..." />
-                    </svg>
-                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
-                        <path d="M9.049 2.927c..." />
-                    </svg>
-                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
-                        <path d="M9.049 2.927c..." />
-                    </svg>
-                </div>
-
                 <p class="text-gray-600 leading-relaxed mb-6">
-                    “Awalnya coba karena iseng, ternyata jadi kebiasaan baru.
+                    "Awalnya coba karena iseng, ternyata jadi kebiasaan baru.
                     Curhat → AI balas → dapat insight → mood jadi lebih stabil.
-                    Recommended banget buat yang butuh ruang aman.”
+                    Recommended banget buat yang butuh ruang aman."
                 </p>
 
                 <div class="flex items-center">

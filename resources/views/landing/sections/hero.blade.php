@@ -1,4 +1,4 @@
-<section id="index" class="pt-24 sm:pt-32 pb-12 sm:pb-20 px-4 sm:px-6 lg:px-8">
+<section id="index" class="pt-12 sm:pt-16 pb-12 sm:pb-20 px-4 sm:px-6 lg:px-8">
     <div class="max-w-7xl mx-auto">
         <div class="grid md:grid-cols-2 gap-8 sm:gap-12 items-center">
             <!-- Left Content -->
@@ -33,10 +33,6 @@
                             Mulai Menulis Sekarang
                         </a>
                     @endauth
-                    <a href="{{ route('demo') }}"
-                        class="border-2 border-purple-600 text-purple-600 px-6 sm:px-8 py-3 sm:py-4 rounded-full font-semibold text-base sm:text-lg hover:bg-purple-50 transition-all duration-200 text-center">
-                        Lihat Demo
-                    </a>
                 </div>
 
                 <div class="flex items-center justify-center md:justify-start space-x-4 sm:space-x-8 pt-4">

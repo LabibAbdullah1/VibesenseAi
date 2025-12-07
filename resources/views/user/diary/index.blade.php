@@ -28,6 +28,18 @@
             </div>
         </div>
 
+        <!-- Success Message -->
+        @if (session('success'))
+            <div class="mb-6 p-4 bg-green-50 border border-green-200 rounded-xl">
+                <div class="flex items-center gap-3">
+                    <svg class="w-5 h-5 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                    </svg>
+                    <p class="text-sm font-medium text-green-800">{{ session('success') }}</p>
+                </div>
+            </div>
+        @endif
+
         <!-- Filter & Search Bar -->
         <div class="bg-white p-4 sm:p-6 rounded-2xl border border-gray-200 shadow-sm mb-6 sm:mb-8">
             <form method="GET" class="flex flex-col sm:flex-row gap-3 sm:gap-4">
@@ -53,6 +65,7 @@
                     <option value="lelah" {{ request('mood') == 'lelah' ? 'selected' : '' }}>😴 Lelah</option>
                     <option value="marah" {{ request('mood') == 'marah' ? 'selected' : '' }}>😠 Marah</option>
                     <option value="tenang" {{ request('mood') == 'tenang' ? 'selected' : '' }}>😌 Tenang</option>
+                    <option value="kesal" {{ request('mood') == 'kesal' ? 'selected' : '' }}>😤 kesal</option>
                 </select>
 
                 <!-- Sort Filter -->
@@ -60,9 +73,7 @@
                     class="px-4 py-3 text-sm rounded-xl border border-gray-300 focus:ring-2 focus:ring-purple-300 focus:border-purple-400 transition-all bg-white">
                     <option value="latest">📅 Terbaru</option>
                     <option value="oldest" {{ request('sort') == 'oldest' ? 'selected' : '' }}>📆 Terlama</option>
-                    <option value="popular" {{ request('sort') == 'popular' ? 'selected' : '' }}>⭐ Populer</option>
                 </select>
-
                 <!-- Filter Button -->
                 <button type="submit"
                     class="px-6 py-3 bg-gradient-to-r from-purple-600 to-pink-600 text-white text-sm font-semibold rounded-xl hover:from-purple-700 hover:to-pink-700 transition-all shadow-md hover:shadow-lg">
@@ -130,27 +141,51 @@
                     <div class="px-5 sm:px-6 py-4 bg-gray-50 flex items-center justify-between gap-3">
                         <div class="flex items-center gap-3">
                             @if ($diary->analysis)
-                                <div class="flex items-center gap-1 text-xs text-gray-500">
-                                    <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
-                                        <path d="M10 12a2 2 0 100-4 2 2 0 000 4z"></path>
-                                        <path fill-rule="evenodd"
-                                            d="M.458 10C1.732 5.943 5.522 3 10 3s8.268 2.943 9.542 7c-1.274 4.057-5.064 7-9.542 7S1.732 14.057.458 10zM14 10a4 4 0 11-8 0 4 4 0 018 0z"
-                                            clip-rule="evenodd"></path>
+                                <div
+                                    class="flex items-center gap-1.5 px-2.5 py-1 bg-gradient-to-r from-purple-50 to-pink-50 rounded-lg border border-purple-100">
+                                    <svg class="w-4 h-4 text-purple-600" fill="none" stroke="currentColor"
+                                        viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M14.828 14.828a4 4 0 01-5.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z">
+                                        </path>
                                     </svg>
-                                    <span>{{ rand(10, 50) }}</span>
+                                    <span class="text-xs font-semibold text-purple-700">
+                                        {{ $diary->analysis->mood_score ?? 'N/A' }}
+                                    </span>
                                 </div>
                             @endif
                         </div>
 
-                        <a href="{{ route('user.diary.show', $diary->id) }}"
-                            class="inline-flex items-center gap-1 text-sm font-semibold text-purple-600 hover:text-purple-700 transition-colors">
-                            <span>Baca Detail</span>
-                            <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none"
-                                stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7">
-                                </path>
-                            </svg>
-                        </a>
+                        <div class="flex items-center gap-2">
+                            <a href="{{ route('user.diary.show', $diary->id) }}"
+                                class="inline-flex items-center gap-1 text-sm font-semibold text-purple-600 hover:text-purple-700 transition-colors">
+                                <span>Baca Detail</span>
+                                <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none"
+                                    stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M9 5l7 7-7 7">
+                                    </path>
+                                </svg>
+                            </a>
+
+                            <!-- Delete Button -->
+                            <button type="button" onclick="confirmDelete({{ $diary->id }})"
+                                class="inline-flex items-center justify-center w-8 h-8 rounded-lg text-red-600 hover:bg-red-50 transition-all"
+                                title="Hapus diary">
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16">
+                                    </path>
+                                </svg>
+                            </button>
+
+                            <!-- Hidden Form -->
+                            <form id="delete-form-{{ $diary->id }}"
+                                action="{{ route('user.diary.destroy', $diary->id) }}" method="POST" class="hidden">
+                                @csrf
+                                @method('DELETE')
+                            </form>
+                        </div>
                     </div>
                 </div>
             @empty
@@ -159,7 +194,8 @@
                     <div class="bg-white rounded-2xl border-2 border-dashed border-gray-300 p-12 text-center">
                         <div
                             class="w-20 h-20 bg-gradient-to-br from-purple-100 to-pink-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                            <svg class="w-10 h-10 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <svg class="w-10 h-10 text-purple-600" fill="none" stroke="currentColor"
+                                viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                     d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253">
                                 </path>
@@ -188,4 +224,74 @@
         @endif
 
     </div>
+@endsection
+
+@section('scripts')
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script>
+        // Test apakah SweetAlert loaded
+        console.log('SweetAlert2 loaded:', typeof Swal !== 'undefined');
+
+        function confirmDelete(diaryId) {
+            console.log('confirmDelete called with ID:', diaryId);
+
+            Swal.fire({
+                title: '🗑️ Hapus Diary?',
+                html: `
+                    <p class="text-gray-600">Apakah kamu yakin ingin menghapus diary ini?</p>
+                    <p class="text-sm text-red-600 mt-2">⚠️ Tindakan ini tidak dapat dibatalkan!</p>
+                `,
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#ef4444',
+                cancelButtonColor: '#6b7280',
+                confirmButtonText: '✓ Ya, Hapus!',
+                cancelButtonText: '✕ Batal',
+                reverseButtons: true,
+                customClass: {
+                    popup: 'rounded-2xl',
+                    confirmButton: 'rounded-xl px-6 py-3 font-semibold',
+                    cancelButton: 'rounded-xl px-6 py-3 font-semibold',
+                },
+                buttonsStyling: true
+            }).then((result) => {
+                console.log('SweetAlert result:', result);
+
+                if (result.isConfirmed) {
+                    // Tampilkan loading
+                    Swal.fire({
+                        title: 'Menghapus...',
+                        html: 'Mohon tunggu sebentar',
+                        allowOutsideClick: false,
+                        allowEscapeKey: false,
+                        didOpen: () => {
+                            Swal.showLoading();
+                        }
+                    });
+
+                    // Submit form
+                    document.getElementById('delete-form-' + diaryId).submit();
+                }
+            });
+        }
+
+        // Success alert jika ada session success
+        @if (session('success'))
+            document.addEventListener('DOMContentLoaded', function() {
+                Swal.fire({
+                    title: '✅ Berhasil!',
+                    text: '{{ session('success') }}',
+                    icon: 'success',
+                    confirmButtonColor: '#8b5cf6',
+                    confirmButtonText: 'OK',
+                    timer: 3000,
+                    timerProgressBar: true,
+                    customClass: {
+                        popup: 'rounded-2xl',
+                        confirmButton: 'rounded-xl px-6 py-3 font-semibold',
+                    }
+                });
+            });
+        @endif
+    </script>
 @endsection

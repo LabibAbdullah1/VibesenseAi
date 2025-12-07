@@ -12,12 +12,41 @@ use Illuminate\Support\Facades\Log;
 
 class DiaryController extends Controller
 {
-    public function index()
+    public function index(Request $request)  // ← Tambah parameter Request
     {
-        $diaries = Diary::with('analysis')
-            ->where('user_id', Auth::id())
-            ->latest()
-            ->paginate(10);
+        $query = Diary::with('analysis')
+            ->where('user_id', Auth::id());  // ← Jadi query builder dulu
+
+        // Search functionality - improved
+        if ($request->filled('search')) {
+            $search = $request->search;
+            $query->where(function ($q) use ($search) {
+                $q->where('content', 'like', '%' . $search . '%')
+                    ->orWhereHas('analysis', function ($subQ) use ($search) {
+                        $subQ->where('reflection', 'like', '%' . $search . '%')
+                            ->orWhere('habit_insight', 'like', '%' . $search . '%');
+                    });
+            });
+        }
+        // ← Tambah logic filter mood
+        if ($request->filled('mood')) {
+            $query->whereHas('analysis', function ($q) use ($request) {
+                $q->where('mood', 'like', '%' . $request->mood . '%');
+            });
+        }
+
+        // ← Tambah logic sort
+        $sort = $request->get('sort', 'latest');
+        switch ($sort) {
+            case 'oldest':
+                $query->oldest();
+                break;
+            default:
+                $query->latest();
+                break;
+        }
+
+        $diaries = $query->paginate(10);
 
         return view('user.diary.index', compact('diaries'));
     }
@@ -29,52 +58,51 @@ class DiaryController extends Controller
     }
 
     public function store(Request $request)
-{
-    $request->validate([
-        'content' => 'required|string|min:10',
-    ]);
-
-    // Simpan diary
-    $diary = Diary::create([
-        'user_id' => Auth::id(),
-        'content' => $request->input('content'),
-    ]);
-
-    try {
-        // Panggil API KA
-        $analysisData = $this->callKaApi($diary->content);
-
-        // Simpan analysis
-        $analysis = DiaryAnalysis::create([
-            'diary_id' => $diary->id,
-            'mood' => $analysisData['mood'] ?? 'Netral',
-            'mood_score' => $analysisData['mood_score'] ?? 50,
-            'reflection' => $analysisData['reflection'] ?? 'Tidak ada refleksi.',
-            'habit_insight' => $analysisData['habit_insight'] ?? 'Belum ada habit.',
+    {
+        $request->validate([
+            'content' => 'required|string|min:10',
         ]);
 
-        Log::info('=== DIARY ANALYSIS DEBUG ===');
-        Log::info('Diary ID: ' . $diary->id);
-        Log::info('Analysis ID: ' . $analysis->id);
-        Log::info('Reflection: ' . $analysis->reflection);
-        Log::info('Habit: ' . $analysis->habit_insight);
-        
-        return view('user.diary.create', [
-            'diary' => $diary,
-            'analysis' => $analysis,
-            'success' => true
+        // Simpan diary
+        $diary = Diary::create([
+            'user_id' => Auth::id(),
+            'content' => $request->input('content'),
         ]);
 
-    } catch (\Exception $e) {
-        Log::error("Analisis AI error: " . $e->getMessage());
-        Log::error($e->getTraceAsString());
+        try {
+            // Panggil API KA
+            $analysisData = $this->callKaApi($diary->content);
 
-        return view('user.diary.create', [
-            'diary' => $diary,
-            'error' => 'Diary tersimpan, tapi analisis AI gagal: ' . $e->getMessage()
-        ]);
+            // Simpan analysis
+            $analysis = DiaryAnalysis::create([
+                'diary_id' => $diary->id,
+                'mood' => $analysisData['mood'] ?? 'Netral',
+                'mood_score' => $analysisData['mood_score'] ?? 50,
+                'reflection' => $analysisData['reflection'] ?? 'Tidak ada refleksi.',
+                'habit_insight' => $analysisData['habit_insight'] ?? 'Belum ada habit.',
+            ]);
+
+            Log::info('=== DIARY ANALYSIS DEBUG ===');
+            Log::info('Diary ID: ' . $diary->id);
+            Log::info('Analysis ID: ' . $analysis->id);
+            Log::info('Reflection: ' . $analysis->reflection);
+            Log::info('Habit: ' . $analysis->habit_insight);
+
+            return view('user.diary.create', [
+                'diary' => $diary,
+                'analysis' => $analysis,
+                'success' => true
+            ]);
+        } catch (\Exception $e) {
+            Log::error("Analisis AI error: " . $e->getMessage());
+            Log::error($e->getTraceAsString());
+
+            return view('user.diary.create', [
+                'diary' => $diary,
+                'error' => 'Diary tersimpan, tapi analisis AI gagal: ' . $e->getMessage()
+            ]);
+        }
     }
-}
 
 
 
