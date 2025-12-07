@@ -117,7 +117,6 @@ cd VibesenseAi
 
 ```
 composer install
-
 ```
 
 3. **Instal Dependensi Frontend (Tailwind/Vite)**
