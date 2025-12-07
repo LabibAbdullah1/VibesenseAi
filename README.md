@@ -1,59 +1,197 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+<div align="center">
+  <img src="public/img/logovibesenseai.png" alt="Tampilan Utama Aplikasi" width="400">
+</div>
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
+<h3 align="center">VibeSenseAi: Smart Mood Tracker & Diary</h3>
+
+<div align="center">
+
+[![Hackathon](https://img.shields.io/badge/Hackathon-2025-orange.svg)]()
+[![IMPHNEN](https://img.shields.io/badge/IMPHNEN-2025-blue.svg)]()
+[![KOLOSAL Ai](https://img.shields.io/badge/KOLOSAL-API-black.svg)]() 
+[![Duck.SC](https://img.shields.io/badge/Duck-SC-yellow.svg)]()
+[![Status](https://img.shields.io/badge/status-active-success.svg)]()
+[![Platform](https://img.shields.io/badge/platform-web-blue.svg)]()
+[![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE.md)
+
+</div>
+
+---
+
+<p align="center"> Sebuah Website kesehatan mental cerdas yang tidak hanya menyimpan cerita Anda, tetapi juga memahami perasaan Anda menggunakan Kecerdasan Artificial.
+    <br> 
 </p>
 
-## About Laravel
+## 📝 Table of Contents
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+- [Demo & Preview](#demo)
+- [Problem Statement](#problem_statement)
+- [Idea / Solution](#idea)
+- [Dependencies / Limitations](#limitations)
+- [Future Scope](#future_scope)
+- [Setting up a local environment](#getting_started)
+- [Usage](#usage)
+- [Technology Stack](#tech_stack)
+- [Authors](#authors)
+- [Acknowledgments](#acknowledgments)
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## 🎥 Demo & Preview <a name = "demo"></a>
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+Jangan lewatkan kesempatan untuk melihat VibeSenseAi beraksi. Klik tautan di bawah ini untuk mencoba aplikasi atau menonton demonstrasi kami:
 
-## Learning Laravel
+<div align="center">
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework. You can also check out [Laravel Learn](https://laravel.com/learn), where you will be guided through building a modern Laravel application.
+### 🚀 [COBA APLIKASI SEKARANG (LIVE DEMO)](https://link-aplikasi-anda.com) 🚀
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+### 📺 [TONTON VIDEO DEMONSTRASI](https://link-video-anda.com) 📺
 
-## Laravel Sponsors
+</div>
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+<br>
 
-### Premium Partners
+![Tampilan Utama Aplikasi](public/img/vibesenseai.png)
+> *Tampilan Halaman utama dari aplikasi VibeSenseAi*
 
-- **[Vehikl](https://vehikl.com)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Redberry](https://redberry.international/laravel-development)**
-- **[Active Logic](https://activelogic.com)**
+---
 
-## Contributing
+## 🧐 Problem Statement <a name = "problem_statement"></a>
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+Mengikuti format analisis bisnis untuk memahami urgensi proyek ini:
 
-## Code of Conduct
+- **IDEAL:** Setiap orang seharusnya memiliki kesadaran tinggi terhadap kesehatan mental mereka. Menulis jurnal (*diary*) sebaiknya bukan hanya aktivitas pasif, tetapi menjadi alat refleksi yang memberikan wawasan (*insight*) tentang pola emosi dan suasana hati seseorang dari waktu ke waktu.
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+- **REALITY:** Kebanyakan aplikasi diary konvensional hanya bersifat statis (hanya menyimpan teks). Pengguna sering kali menulis curhatan panjang namun kesulitan melihat "benang merah" dari kondisi emosional mereka sendiri. Data teks menumpuk tanpa memberikan makna lebih lanjut.
 
-## Security Vulnerabilities
+- **CONSEQUENCES:** Tanpa umpan balik atau visualisasi emosi, pengguna sering kehilangan motivasi untuk rutin menulis diary (inkonsistensi). Lebih buruk lagi, tanda-tanda awal stres, kecemasan, atau depresi yang tersirat dalam tulisan mereka sering kali terlewatkan dan tidak tertangani dengan baik.
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+## 💡 Idea / Solution <a name = "idea"></a>
 
-## License
+**VibeSenseAi** hadir sebagai solusi yang menjembatani *journaling* tradisional dengan teknologi **Kecerdasan Artificial**.
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+Solusi kami sederhana namun berdampak:
+1.  Pengguna menulis catatan harian seperti biasa.
+2.  Sistem kami, yang terintegrasi dengan **Kolosal.ai**, secara otomatis memproses teks tersebut.
+3.  Aplikasi mendeteksi sentimen (Mood Analysis) dan menyimpannya secara terstruktur di database.
+4.  Pengguna mendapatkan visualisasi mood mereka secara instan, mengubah teks cerita menjadi data kesehatan mental yang berharga.
+
+## ⛓️ Dependencies / Limitations <a name = "limitations"></a>
+
+- **Koneksi Internet:** Karena aplikasi membutuhkan akses ke API eksternal (Kolosal.ai) untuk memproses teks, aplikasi ini tidak dapat berfungsi penuh secara offline.
+- **Limitasi API:** Ketergantungan pada *Rate Limit* dan kuota dari penyedia layanan AI (Kolosal).
+- **Nuansa Bahasa (Slang):** Meskipun model AI sudah canggih, penggunaan bahasa daerah yang sangat spesifik atau *slang* baru mungkin mengurangi akurasi deteksi mood.
+- **Privasi API:** Data teks dikirim ke pihak ketiga (Kolosal) untuk diproses, meskipun kami memastikan transmisi aman, ini adalah pertimbangan arsitektur yang perlu diketahui.
+
+## 🚀 Future Scope <a name = "future_scope"></a>
+
+Berikut adalah fitur yang belum sempat kami kembangkan selama Hackathon namun menjadi peta jalan (roadmap) masa depan VibeSenseAi:
+
+- **Sistem Rekomendasi Cerdas:** Memberikan saran aktivitas (misal: "Anda tampak sedih, coba dengarkan playlist ini" atau "Coba latihan pernapasan ini") berdasarkan hasil analisis mood di tabel `diary_analysis`.
+- **Grafik Tren Bulanan:** Visualisasi data mood dalam bentuk grafik garis untuk melihat fluktuasi emosi dalam rentang waktu bulanan/tahunan.
+- **Voice-to-Text Diary:** Fitur untuk merekam suara curhatan yang otomatis dikonversi menjadi teks diary.
+
+## 🏁 Getting Started <a name = "getting_started"></a>
+
+Instruksi ini akan membantu Anda menjalankan salinan proyek di mesin lokal Anda untuk tujuan pengembangan dan pengujian.
+
+### Prerequisites
+
+Pastikan perangkat lunak berikut sudah terinstal di komputer Anda:
+
+- Xampp/laragon/Herd
+- PHP >= 8.3
+- Composer (_wajib jika pakai xampp_)
+- Node.js & NPM
+- MySQL
+
+### Installing
+
+Ikuti langkah-langkah berikut untuk menyiapkan lingkungan pengembangan (Development Env):
+
+1. **Clone Repositori**
+```
+git clone https://github.com/LabibAbdullah1/VibesenseAi.git
+cd VibesenseAi
+```
+
+2. **Instal Dependensi Backend (Laravel)**
+
+```
+composer install
+
+```
+
+3. **Instal Dependensi Frontend (Tailwind/Vite)**
+```
+npm install 
+npm run build
+```
+4. **Konfigurasi Environment Duplikat file .env.example menjadi .env. Pilih perintah sesuai sistem operasi Anda :**
+
+   - Untuk macOS / Linux / Git Bash:
+   ```
+   cp .env.example .env
+   ```
+   - Untuk Windows (Command Prompt/PowerShell):
+   ```
+   copy .env.example .env
+   ```
+
+**Penting: Buka file .env yang baru saja dibuat, lalu sesuaikan konfigurasi berikut :**
+```
+KOLOSAL_API_KEY=isi dengan apikey kolosal kamu
+KOLOSAL_BASE_URL=https://api.kolosal.ai/v1/chat/completions
+KOLOSAL_MODEL='Claude Sonnet 4.5' 
+
+```
+
+5. **Generate Key & Migrasi Database Jalankan perintah ini untuk membuat key aplikasi dan tabel database :**
+```
+php artisan key:generate
+php artisan migrate
+```
+6. **Jalankan Aplikasi :**
+```
+php artisan serve
+```
+>Aplikasi berhasil berjalan di local dan silahkan masuk ke:  http://localhost:8000
+## 🎈 Usage <a name="usage"></a>
+ 1. Register/Login: Buat akun baru atau masuk menggunakan kredensial yang ada.
+
+2. Create Diary: Klik tombol "Tulis diary", masukkan isi cerita Anda hari ini.
+
+3. Analyze: Simpan diary. Sistem akan otomatis memproses data ke KA.
+
+4. View Dashboard: Lihat diary Anda yang kini sudah memiliki label mood di dashboard utama.
+
+## ⛏️ Built With <a name = "tech_stack"></a>
+- Laravel 12 - Backend Framework
+
+- Tailwind CSS - Frontend Styling
+
+- Blade - Template Engine
+
+- Kolosal.ai - Proses Analysis menggunakan API
+
+- MySQL - Database Management
+
+- Laravel Breeze - Authentication
+
+## ✍️ Authors <a name = "authors"></a>
+- [@LabibAbdullah1](https://github.com/LabibAbdullah1)  - Backend & Logic
+
+- [@rfldisyah](https://github.com/rfldisyah) - Frontend & UI/UX
+
+  ### Lihat juga daftar kontributor yang berpartisipasi dalam proyek ini.
+
+  - [@LeniComelll-coder](https://github.com/LeniComelll-coder)
+
+  - [@alfa03r](https://github.com/alfa03r)
+
+## 🎉 Acknowledgments <a name = "acknowledgments"></a>
+- Terima kasih kepada Kolosal.ai atas penyediaan API yang hebat.
+
+- Inspirasi dari tren aplikasi kesehatan mental modern.
+
+- Dokumentasi Laravel yang luar biasa.
+
+
