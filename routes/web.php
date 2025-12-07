@@ -41,6 +41,7 @@ Route::middleware(['auth', 'verified'])
         Route::delete('/diary/{id}', [DiaryController::class, 'destroy'])->name('diary.destroy');
 
 
+
         // Settings Routes
         Route::get('/settings', [SettingsController::class, 'index'])->name('settings.index');
         Route::put('/settings/profile', [SettingsController::class, 'updateProfile'])->name('settings.update-profile');

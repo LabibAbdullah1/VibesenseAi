@@ -1,6 +1,5 @@
 <?php
 
-
 namespace App\Http\Controllers;
 
 use App\Models\Diary;
@@ -63,10 +62,12 @@ class DiaryController extends Controller
             'content' => 'required|string|min:10',
         ]);
 
+
         // Simpan diary
         $diary = Diary::create([
             'user_id' => Auth::id(),
             'content' => $request->input('content'),
+
         ]);
 
         try {

@@ -18,7 +18,7 @@
 
 ---
 
-<p align="center"> Sebuah jurnal kesehatan mental cerdas yang tidak hanya menyimpan cerita Anda, tetapi juga memahami perasaan Anda menggunakan Kecerdasan Artificial.
+<p align="center"> Sebuah Website kesehatan mental cerdas yang tidak hanya menyimpan cerita Anda, tetapi juga memahami perasaan Anda menggunakan Kecerdasan Artificial.
     <br> 
 </p>
 
@@ -50,7 +50,7 @@ Jangan lewatkan kesempatan untuk melihat VibeSenseAi beraksi. Klik tautan di baw
 <br>
 
 ![Tampilan Utama Aplikasi](public/img/vibesenseai.png)
-> *Tampilan Halaman utama dari aplikasi vibesenseAi*
+> *Tampilan Halaman utama dari aplikasi VibeSenseAi*
 
 ---
 
@@ -62,11 +62,11 @@ Mengikuti format analisis bisnis untuk memahami urgensi proyek ini:
 
 - **REALITY:** Kebanyakan aplikasi diary konvensional hanya bersifat statis (hanya menyimpan teks). Pengguna sering kali menulis curhatan panjang namun kesulitan melihat "benang merah" dari kondisi emosional mereka sendiri. Data teks menumpuk tanpa memberikan makna lebih lanjut.
 
-- **CONSEQUENCES:** Tanpa umpan balik atau visualisasi emosi, pengguna sering kehilangan motivasi untuk rutin menulis jurnal (inkonsistensi). Lebih buruk lagi, tanda-tanda awal stres, kecemasan, atau depresi yang tersirat dalam tulisan mereka sering kali terlewatkan dan tidak tertangani dengan baik.
+- **CONSEQUENCES:** Tanpa umpan balik atau visualisasi emosi, pengguna sering kehilangan motivasi untuk rutin menulis diary (inkonsistensi). Lebih buruk lagi, tanda-tanda awal stres, kecemasan, atau depresi yang tersirat dalam tulisan mereka sering kali terlewatkan dan tidak tertangani dengan baik.
 
 ## 💡 Idea / Solution <a name = "idea"></a>
 
-**VibeSenseAi** hadir sebagai solusi yang menjembatani *journaling* tradisional dengan teknologi **Kecerdasan Artificial (KA)**.
+**VibeSenseAi** hadir sebagai solusi yang menjembatani *journaling* tradisional dengan teknologi **Kecerdasan Artificial**.
 
 Solusi kami sederhana namun berdampak:
 1.  Pengguna menulis catatan harian seperti biasa.
@@ -77,8 +77,8 @@ Solusi kami sederhana namun berdampak:
 ## ⛓️ Dependencies / Limitations <a name = "limitations"></a>
 
 - **Koneksi Internet:** Karena aplikasi membutuhkan akses ke API eksternal (Kolosal.ai) untuk memproses teks, aplikasi ini tidak dapat berfungsi penuh secara offline.
-- **Limitasi API:** Ketergantungan pada *Rate Limit* dan kuota dari penyedia layanan KA (Kolosal).
-- **Nuansa Bahasa (Slang):** Meskipun model KA sudah canggih, penggunaan bahasa daerah yang sangat spesifik atau *slang* baru mungkin mengurangi akurasi deteksi mood.
+- **Limitasi API:** Ketergantungan pada *Rate Limit* dan kuota dari penyedia layanan AI (Kolosal).
+- **Nuansa Bahasa (Slang):** Meskipun model AI sudah canggih, penggunaan bahasa daerah yang sangat spesifik atau *slang* baru mungkin mengurangi akurasi deteksi mood.
 - **Privasi API:** Data teks dikirim ke pihak ketiga (Kolosal) untuk diproses, meskipun kami memastikan transmisi aman, ini adalah pertimbangan arsitektur yang perlu diketahui.
 
 ## 🚀 Future Scope <a name = "future_scope"></a>
@@ -87,7 +87,7 @@ Berikut adalah fitur yang belum sempat kami kembangkan selama Hackathon namun me
 
 - **Sistem Rekomendasi Cerdas:** Memberikan saran aktivitas (misal: "Anda tampak sedih, coba dengarkan playlist ini" atau "Coba latihan pernapasan ini") berdasarkan hasil analisis mood di tabel `diary_analysis`.
 - **Grafik Tren Bulanan:** Visualisasi data mood dalam bentuk grafik garis untuk melihat fluktuasi emosi dalam rentang waktu bulanan/tahunan.
-- **Voice-to-Text Diary:** Fitur untuk merekam suara curhatan yang otomatis dikonversi menjadi teks jurnal.
+- **Voice-to-Text Diary:** Fitur untuk merekam suara curhatan yang otomatis dikonversi menjadi teks diary.
 
 ## 🏁 Getting Started <a name = "getting_started"></a>
 
@@ -97,8 +97,9 @@ Instruksi ini akan membantu Anda menjalankan salinan proyek di mesin lokal Anda 
 
 Pastikan perangkat lunak berikut sudah terinstal di komputer Anda:
 
-- PHP >= 8.4
-- Composer
+- Xampp/laragon/Herd
+- PHP >= 8.3
+- Composer (_wajib jika pakai xampp_)
 - Node.js & NPM
 - MySQL
 
@@ -109,13 +110,14 @@ Ikuti langkah-langkah berikut untuk menyiapkan lingkungan pengembangan (Developm
 1. **Clone Repositori**
 ```
 git clone https://github.com/LabibAbdullah1/VibesenseAi.git
- cd VibesenseAi
+cd VibesenseAi
 ```
 
 2. **Instal Dependensi Backend (Laravel)**
 
 ```
 composer install
+
 ```
 
 3. **Instal Dependensi Frontend (Tailwind/Vite)**
@@ -125,21 +127,23 @@ npm run build
 ```
 4. **Konfigurasi Environment Duplikat file .env.example menjadi .env. Pilih perintah sesuai sistem operasi Anda :**
 
-- Untuk macOS / Linux / Git Bash:
-```
-cp .env.example .env
-```
-- Untuk Windows (Command Prompt/PowerShell):
-```
-copy .env.example .env
-```
+   - Untuk macOS / Linux / Git Bash:
+   ```
+   cp .env.example .env
+   ```
+   - Untuk Windows (Command Prompt/PowerShell):
+   ```
+   copy .env.example .env
+   ```
 
 **Penting: Buka file .env yang baru saja dibuat, lalu sesuaikan konfigurasi berikut :**
 ```
 KOLOSAL_API_KEY=isi dengan apikey kolosal kamu
 KOLOSAL_BASE_URL=https://api.kolosal.ai/v1/chat/completions
 KOLOSAL_MODEL='Claude Sonnet 4.5' 
+
 ```
+
 5. **Generate Key & Migrasi Database Jalankan perintah ini untuk membuat key aplikasi dan tabel database :**
 ```
 php artisan key:generate
@@ -149,14 +153,15 @@ php artisan migrate
 ```
 php artisan serve
 ```
+>Aplikasi berhasil berjalan di local dan silahkan masuk ke:  http://localhost:8000
 ## 🎈 Usage <a name="usage"></a>
  1. Register/Login: Buat akun baru atau masuk menggunakan kredensial yang ada.
 
-2. Create Diary: Klik tombol "Tulis Jurnal", masukkan judul dan isi cerita Anda hari ini.
+2. Create Diary: Klik tombol "Tulis diary", masukkan isi cerita Anda hari ini.
 
-3. Analyze: Simpan jurnal. Sistem akan otomatis memproses data ke KA.
+3. Analyze: Simpan diary. Sistem akan otomatis memproses data ke KA.
 
-4. View Dashboard: Lihat jurnal Anda yang kini sudah memiliki label mood (ikon emosi) di dashboard utama.
+4. View Dashboard: Lihat diary Anda yang kini sudah memiliki label mood di dashboard utama.
 
 ## ⛏️ Built With <a name = "tech_stack"></a>
 - Laravel 12 - Backend Framework
@@ -165,7 +170,7 @@ php artisan serve
 
 - Blade - Template Engine
 
-- Kolosal.ai - Kecerdasan Artificial (KA) API
+- Kolosal.ai - Proses Analysis menggunakan API
 
 - MySQL - Database Management
 
@@ -176,11 +181,11 @@ php artisan serve
 
 - [@rfldisyah](https://github.com/rfldisyah) - Frontend & UI/UX
 
-### Lihat juga daftar kontributor yang berpartisipasi dalam proyek ini.
+  ### Lihat juga daftar kontributor yang berpartisipasi dalam proyek ini.
 
-- [@LeniComelll-coder](https://github.com/LeniComelll-coder)
+  - [@LeniComelll-coder](https://github.com/LeniComelll-coder)
 
-- [@alfa03r](https://github.com/alfa03r)
+  - [@alfa03r](https://github.com/alfa03r)
 
 ## 🎉 Acknowledgments <a name = "acknowledgments"></a>
 - Terima kasih kepada Kolosal.ai atas penyediaan API yang hebat.
