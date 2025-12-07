@@ -141,7 +141,9 @@ npm run build
 KOLOSAL_API_KEY=isi dengan apikey kolosal kamu
 KOLOSAL_BASE_URL=https://api.kolosal.ai/v1/chat/completions
 KOLOSAL_MODEL='Claude Sonnet 4.5' 
+
 ```
+
 5. **Generate Key & Migrasi Database Jalankan perintah ini untuk membuat key aplikasi dan tabel database :**
 ```
 php artisan key:generate
@@ -151,7 +153,7 @@ php artisan migrate
 ```
 php artisan serve
 ```
->Masuk ke aplikasi dengan localhost kalian:  http://localhost:8000
+>Aplikasi berhasil berjalan di local dan silahkan masuk ke:  http://localhost:8000
 ## 🎈 Usage <a name="usage"></a>
  1. Register/Login: Buat akun baru atau masuk menggunakan kredensial yang ada.
 
