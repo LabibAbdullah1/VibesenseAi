@@ -41,7 +41,7 @@ Jangan lewatkan kesempatan untuk melihat VibeSenseAi beraksi. Klik tautan di baw
 
 <div align="center">
 
-### 🚀 [COBA APLIKASI SEKARANG (LIVE DEMO)](https://link-aplikasi-anda.com) 🚀
+### 🚀 [COBA APLIKASI SEKARANG (LIVE DEMO)](https://vibessenseai.albagani.com/) 🚀
 
 ### 📺 [TONTON VIDEO DEMONSTRASI](https://link-video-anda.com) 📺
 
