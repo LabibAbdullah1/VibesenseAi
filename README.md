@@ -139,7 +139,7 @@ npm run build
 ```
 KOLOSAL_API_KEY=isi dengan apikey kolosal kamu
 KOLOSAL_BASE_URL=https://api.kolosal.ai/v1/chat/completions
-KOLOSAL_MODEL='Claude Sonnet 4.5' 
+KOLOSAL_MODEL='Kimi K2'
 
 ```
 
