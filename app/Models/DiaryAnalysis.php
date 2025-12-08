@@ -10,7 +10,7 @@ class DiaryAnalysis extends Model
 {
     use HasFactory;
 
-    protected $table = 'diary_analysis'; 
+    protected $table = 'diary_analysis';
 
     protected $fillable = [
         'diary_id',
@@ -22,6 +22,8 @@ class DiaryAnalysis extends Model
 
     protected $casts = [
         'mood_score' => 'integer',
+        'reflection' => 'encrypted',
+        'habit_insight'=> 'encrypted',
     ];
 
     public function diary(): BelongsTo
