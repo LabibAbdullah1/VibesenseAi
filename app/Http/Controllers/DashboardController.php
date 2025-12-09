@@ -60,10 +60,16 @@ class DashboardController extends Controller
 
     private function calculateStreak($userId)
     {
+        $timezone = config('app.timezone');
+
         $diaries = Diary::where('user_id', $userId)
             ->orderBy('created_at', 'desc')
-            ->pluck('created_at')
-            ->map(fn($date) => Carbon::parse($date)->format('Y-m-d'))
+            ->get()
+            ->map(function ($diary) use ($timezone) {
+                return Carbon::parse($diary->created_at)
+                    ->setTimezone($timezone)
+                    ->format('Y-m-d');
+            })
             ->unique()
             ->values();
 
@@ -71,25 +77,28 @@ class DashboardController extends Controller
             return 0;
         }
 
-        $streak = 1;
-        $today = Carbon::today()->format('Y-m-d');
-        
-        // Check if wrote today or yesterday
-        if ($diaries[0] !== $today && $diaries[0] !== Carbon::yesterday()->format('Y-m-d')) {
+        $today = now()->format('Y-m-d');
+
+        $yesterday = now()->subDay()->format('Y-m-d');
+
+        if ($diaries[0] !== $today && $diaries[0] !== $yesterday) {
             return 0;
         }
 
+        $streak = 1;
+
         for ($i = 0; $i < $diaries->count() - 1; $i++) {
-            $current = Carbon::parse($diaries[$i]);
-            $next = Carbon::parse($diaries[$i + 1]);
-            
-            if ($current->diffInDays($next) === 1) {
+            $currentDate = Carbon::parse($diaries[$i]);
+
+            $expectedPreviousDate = $currentDate->copy()->subDay()->format('Y-m-d');
+            $actualNextDate = Carbon::parse($diaries[$i + 1])->format('Y-m-d');
+
+            if ($expectedPreviousDate === $actualNextDate) {
                 $streak++;
             } else {
                 break;
             }
         }
-
         return $streak;
     }
 
