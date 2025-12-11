@@ -12,7 +12,7 @@ use Carbon\Carbon;
 class DashboardController extends Controller
 {
     public function index()
-    {
+    {   
         $userId = Auth::id();
 
         // Statistics

@@ -2,7 +2,6 @@
 
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\DiaryController;
-use App\Http\Controllers\DiaryAnalysisController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LandingController;
 use App\Http\Controllers\DashboardController;
@@ -23,7 +22,7 @@ Route::middleware(['auth', 'verified'])
     ->group(function () {
 
         // Dashboard
-        Route::get('/dashboard', [UserDashboardController::class, 'index'])
+        Route::get('/dashboard', [UserDashboardController::class, 'index'])->middleware(['auth', 'verified'])
             ->name('dashboard');
 
         Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
