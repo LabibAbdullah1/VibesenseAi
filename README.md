@@ -102,7 +102,10 @@ Pastikan perangkat lunak berikut sudah terinstal di komputer Anda:
 - Composer (_wajib jika pakai xampp_)
 - Node.js & NPM
 - MySQL
+
+penting :
 - APIKEY KOLOSAL
+- Password App from google
 
 ### Installing
 
