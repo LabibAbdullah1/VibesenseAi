@@ -41,7 +41,7 @@ Jangan lewatkan kesempatan untuk melihat VibeSenseAi beraksi. Klik tautan di baw
 
 <div align="center">
 
-### 🚀 [COBA APLIKASI VibeSenseAI SEKARANG ](https://vibessenseai.albagani.com/) 🚀
+### 🚀 [COBA APLIKASI VibeSenseAI SEKARANG ](https://vibessenseai-fasilkom.unilak.ac.id/) 🚀
 
 ### 📺 [TONTON VIDEO DEMONSTRASI](https://drive.google.com/file/d/18nTFAuukhDPXCsiwG7qOd5Cy_5xttVu6/view?usp=sharing) 📺
 
@@ -102,6 +102,7 @@ Pastikan perangkat lunak berikut sudah terinstal di komputer Anda:
 - Composer (_wajib jika pakai xampp_)
 - Node.js & NPM
 - MySQL
+- APIKEY KOLOSAL
 
 ### Installing
 
@@ -136,12 +137,25 @@ npm run build
    ```
 
 **Penting: Buka file .env yang baru saja dibuat, lalu sesuaikan konfigurasi berikut :**
+  - untuk APIKEY KOLOSAL
 ```
 KOLOSAL_API_KEY=isi dengan apikey kolosal kamu
 KOLOSAL_BASE_URL=https://api.kolosal.ai/v1/chat/completions
-KOLOSAL_MODEL='Kimi K2'
-
+KOLOSAL_MODEL='Claude Sonnet 4.5'
 ```
+jika belum memiliki APIKEY KOLOSAL silahkan berlangganan di [kolosal.ai](https://www.kolosal.ai/)
+
+  - untuk keperluan verifikasi akun:
+```
+MAIL_MAILER=smtp
+MAIL_HOST=smtp.gmail.com
+MAIL_PORT=465
+MAIL_USERNAME=masukkan email kamu
+MAIL_PASSWORD=masukkan password app kamu
+MAIL_ENCRYPTION=ssl
+MAIL_FROM_ADDRESS="no-reply@vibessenseai.com"
+```
+silahkan buat *APP PASSWORD* dari akun [Google](https://www.google.com/) kalian 
 
 5. **Generate Key & Migrasi Database Jalankan perintah ini untuk membuat key aplikasi dan tabel database :**
 ```
