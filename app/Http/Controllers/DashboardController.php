@@ -159,6 +159,8 @@ class DashboardController extends Controller
             'Lelah' => 0,
             'Tenang' => 0,
             'Marah' => 0,
+            'Stres' => 0,
+            'Bersemangat' => 0,
         ];
 
         foreach ($moods as $mood => $count) {

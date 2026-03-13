@@ -65,7 +65,8 @@
                     <option value="lelah" {{ request('mood') == 'lelah' ? 'selected' : '' }}>😴 Lelah</option>
                     <option value="marah" {{ request('mood') == 'marah' ? 'selected' : '' }}>😠 Marah</option>
                     <option value="tenang" {{ request('mood') == 'tenang' ? 'selected' : '' }}>😌 Tenang</option>
-                    <option value="kesal" {{ request('mood') == 'kesal' ? 'selected' : '' }}>😤 kesal</option>
+                    <option value="stres" {{ request('mood') == 'stres' ? 'selected' : '' }}>😫 Stres</option>
+                    <option value="bersemangat" {{ request('mood') == 'bersemangat' ? 'selected' : '' }}>🔥 Bersemangat</option>
                 </select>
 
                 <!-- Sort Filter -->

@@ -20,8 +20,33 @@ class Diary extends Model
 
     protected $casts = [
         'is_private' => 'boolean',
-        'content' => 'encrypted',
     ];
+
+    /**
+     * Accessor untuk mendekripsi konten dengan aman.
+     * Mencegah aplikasi crash jika APP_KEY tidak sesuai (Invalid MAC).
+     */
+    public function getContentAttribute($value)
+    {
+        if (empty($value)) return $value;
+
+        try {
+            return \Illuminate\Support\Facades\Crypt::decrypt($value);
+        } catch (\Exception $e) {
+            // Jika gagal dekripsi (misal karena APP_KEY beda), jangan crash.
+            // Kembalikan pesan error yang ramah atau blok data asli.
+            return "[Konten tidak dapat dibaca: MAC tidak valid. Mohon samakan APP_KEY atau buat ulang diary ini.]";
+        }
+    }
+
+    /**
+     * Mutator untuk mengenkripsi konten saat disimpan.
+     */
+    public function setContentAttribute($value)
+    {
+        $this->attributes['content'] = \Illuminate\Support\Facades\Crypt::encrypt($value);
+    }
+
 
     protected $attributes = [
         'is_private' => true,

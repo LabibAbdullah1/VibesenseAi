@@ -8,7 +8,7 @@
 
 [![Hackathon](https://img.shields.io/badge/Hackathon-2025-orange.svg)]()
 [![IMPHNEN](https://img.shields.io/badge/IMPHNEN-2025-blue.svg)]()
-[![KOLOSAL Ai](https://img.shields.io/badge/KOLOSAL-API-black.svg)]() 
+[![Google Gemini](https://img.shields.io/badge/Google-Gemini-blue.svg)]() 
 [![Duck.SC](https://img.shields.io/badge/Duck-SC-yellow.svg)]()
 [![Status](https://img.shields.io/badge/status-active-success.svg)]()
 [![Platform](https://img.shields.io/badge/platform-web-blue.svg)]()
@@ -70,16 +70,16 @@ Mengikuti format analisis bisnis untuk memahami urgensi proyek ini:
 
 Solusi kami sederhana namun berdampak:
 1.  Pengguna menulis catatan harian seperti biasa.
-2.  Sistem kami, yang terintegrasi dengan **Kolosal.ai**, secara otomatis memproses teks tersebut.
+2.  Sistem kami, yang terintegrasi dengan **Google Gemini API**, secara otomatis memproses teks tersebut.
 3.  Aplikasi mendeteksi sentimen (Mood Analysis) dan menyimpannya secara terstruktur di database.
 4.  Pengguna mendapatkan visualisasi mood mereka secara instan, mengubah teks cerita menjadi data kesehatan mental yang berharga.
 
 ## ⛓️ Dependencies / Limitations <a name = "limitations"></a>
 
-- **Koneksi Internet:** Karena aplikasi membutuhkan akses ke API eksternal (Kolosal.ai) untuk memproses teks, aplikasi ini tidak dapat berfungsi penuh secara offline.
-- **Limitasi API:** Ketergantungan pada *Rate Limit* dan kuota dari penyedia layanan AI (Kolosal).
+- **Koneksi Internet:** Karena aplikasi membutuhkan akses ke API eksternal (Google Gemini) untuk memproses teks, aplikasi ini tidak dapat berfungsi penuh secara offline.
+- **Limitasi API:** Ketergantungan pada *Rate Limit* dan kuota dari penyedia layanan AI (Google).
 - **Nuansa Bahasa (Slang):** Meskipun model AI sudah canggih, penggunaan bahasa daerah yang sangat spesifik atau *slang* baru mungkin mengurangi akurasi deteksi mood.
-- **Privasi API:** Data teks dikirim ke pihak ketiga (Kolosal) untuk diproses, meskipun kami memastikan transmisi aman, ini adalah pertimbangan arsitektur yang perlu diketahui.
+- **Privasi API:** Data teks dikirim ke pihak ketiga (Google) untuk diproses, meskipun kami memastikan transmisi aman, ini adalah pertimbangan arsitektur yang perlu diketahui.
 
 ## 🚀 Future Scope <a name = "future_scope"></a>
 
@@ -98,13 +98,13 @@ Instruksi ini akan membantu Anda menjalankan salinan proyek di mesin lokal Anda 
 Pastikan perangkat lunak berikut sudah terinstal di komputer Anda:
 
 - Xampp/laragon/Herd
-- PHP >= 8.3
+- PHP >= 8.2
 - Composer (_wajib jika pakai xampp_)
 - Node.js & NPM
 - MySQL
 
 penting :
-- APIKEY KOLOSAL
+- APIKEY GEMINI
 - Password App from google
 
 ### Installing
@@ -140,13 +140,11 @@ npm run build
    ```
 
 **Penting: Buka file .env yang baru saja dibuat, lalu sesuaikan konfigurasi berikut :**
-  - untuk APIKEY KOLOSAL
+  - untuk APIKEY GEMINI
 ```
-KOLOSAL_API_KEY=isi dengan apikey kolosal kamu
-KOLOSAL_BASE_URL=https://api.kolosal.ai/v1/chat/completions
-KOLOSAL_MODEL='Claude Sonnet 4.5'
+GEMINI_API_KEY=isi dengan apikey gemini kamu
 ```
-jika belum memiliki APIKEY KOLOSAL silahkan berlangganan di [kolosal.ai](https://www.kolosal.ai/)
+jika belum memiliki APIKEY GEMINI silahkan dapatkan secara gratis di [Google AI Studio](https://aistudio.google.com/)
 
   - untuk keperluan verifikasi akun:
 ```
@@ -180,13 +178,13 @@ php artisan serve
 4. View Dashboard: Lihat diary Anda yang kini sudah memiliki label mood di dashboard utama.
 
 ## ⛏️ Built With <a name = "tech_stack"></a>
-- Laravel 12 - Backend Framework
+- Laravel 11 - Backend Framework
 
 - Tailwind CSS - Frontend Styling
 
 - Blade - Template Engine
 
-- Kolosal.ai - Proses Analysis menggunakan API
+- Google Gemini API - Proses Analysis menggunakan AI
 
 - MySQL - Database Management
 
@@ -204,7 +202,7 @@ php artisan serve
   - [@alfa03r](https://github.com/alfa03r)
 
 ## 🎉 Acknowledgments <a name = "acknowledgments"></a>
-- Terima kasih kepada Kolosal.ai atas penyediaan API yang hebat.
+- Terima kasih kepada Google atas penyediaan API Gemini yang luar biasa.
 
 - Inspirasi dari tren aplikasi kesehatan mental modern.
 
